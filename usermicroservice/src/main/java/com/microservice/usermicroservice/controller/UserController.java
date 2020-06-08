@@ -4,6 +4,7 @@ import com.microservice.usermicroservice.model.UserModel;
 import com.microservice.usermicroservice.service.IUserService;
 import com.microservice.usermicroservice.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,9 @@ import static org.springframework.http.MediaType.*;
 @RestController
 public class UserController {
 
-	
+	@Value("${brand.name}")
+	String name;
+
 	@Autowired
 	RestTemplate restTemplate;
 
@@ -33,7 +36,7 @@ public class UserController {
 	
 	@RequestMapping(value ="/")
 	public String test() {
-		return "sucess";
+		return "sucess "+name;
 	}
 	
 	@GetMapping(value = "/details/{id}")

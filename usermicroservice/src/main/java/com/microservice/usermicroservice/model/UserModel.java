@@ -1,6 +1,7 @@
 package com.microservice.usermicroservice.model;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.Email;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Size;
 
 @Data
 @Setter
+@Getter
 public class UserModel {
 
 	@NotNull
@@ -41,6 +43,5 @@ public class UserModel {
 		this.email = email;
 		this.password = password;
 	}
-
 
 }
